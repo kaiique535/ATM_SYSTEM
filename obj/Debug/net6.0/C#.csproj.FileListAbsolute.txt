@@ -1,0 +1,15 @@
+/mnt/d/JONATHAN/C#/bin/Debug/net6.0/C#
+/mnt/d/JONATHAN/C#/bin/Debug/net6.0/C#.deps.json
+/mnt/d/JONATHAN/C#/bin/Debug/net6.0/C#.runtimeconfig.json
+/mnt/d/JONATHAN/C#/bin/Debug/net6.0/C#.dll
+/mnt/d/JONATHAN/C#/bin/Debug/net6.0/C#.pdb
+/mnt/d/JONATHAN/C#/obj/Debug/net6.0/C#.csproj.AssemblyReference.cache
+/mnt/d/JONATHAN/C#/obj/Debug/net6.0/C#.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/d/JONATHAN/C#/obj/Debug/net6.0/C#.AssemblyInfoInputs.cache
+/mnt/d/JONATHAN/C#/obj/Debug/net6.0/C#.AssemblyInfo.cs
+/mnt/d/JONATHAN/C#/obj/Debug/net6.0/C#.csproj.CoreCompileInputs.cache
+/mnt/d/JONATHAN/C#/obj/Debug/net6.0/C#.dll
+/mnt/d/JONATHAN/C#/obj/Debug/net6.0/refint/C#.dll
+/mnt/d/JONATHAN/C#/obj/Debug/net6.0/C#.pdb
+/mnt/d/JONATHAN/C#/obj/Debug/net6.0/C#.genruntimeconfig.cache
+/mnt/d/JONATHAN/C#/obj/Debug/net6.0/ref/C#.dll
