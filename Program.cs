@@ -94,61 +94,60 @@ public class program
             Console.WriteLine("Please, entry with a value more than zero");
             //Verifica se o numero é par valido para saque
         }
-        else if (withdrawValue % 2 == 0) { 
-
-         }
-         else {
-          Console.WriteLine( " " )
-         }
+        else if (withdrawValue % 2 == 0) { }
+        else
+        {
+            Console.WriteLine(" ");
+        }
+        return availableBankNotes;
     }
 
-        /* int bn200 = 0, bn100 = 0, bn50 = 0, bn20 = 0, bn10 = 0, bn5 = 0, bn2 = 0;
-    
-    
-        if (withdrawValue >= 200) {
-          //Console.WriteLine($"test 200 {withdrawValue}");
-          bn200 = withdrawValue / 200;
-          withdrawValue = withdrawValue - (bn200 * 200);
-        };
-        if (withdrawValue >= 100) {
-          //Console.WriteLine($"test 100 {withdrawValue}");
-          bn100 = (withdrawValue / 2) / 100;
-          withdrawValue = withdrawValue - (bn100 * 100);
-        };
-        if (withdrawValue >= 50) {
-          //Console.WriteLine($"test 50 {withdrawValue}");
-          bn50 = (withdrawValue / 2) / 50;
-          withdrawValue = withdrawValue - (bn50 * 50);
-        };
-        if (withdrawValue >= 20) {
-          //Console.WriteLine($"test 20 {withdrawValue}");
-          bn20 = (withdrawValue / 2) / 20;
-          withdrawValue = withdrawValue - (bn20 * 20);
-    
-        };
-        if (withdrawValue >= 10) {
-          //Console.WriteLine($"test 10 {withdrawValue}");
-          bn10 = (withdrawValue / 2) / 10;
-          withdrawValue = withdrawValue - (bn10 * 10);
-    
-        };
-        if (withdrawValue >= 5) {
-          //Console.WriteLine($"test 5 {withdrawValue}");
-          bn5 = (withdrawValue / 2) / 5;
-          withdrawValue = withdrawValue - (bn5 * 5);
-    
-        };
-        if (withdrawValue >= 2) {
-          //Console.WriteLine($"test 2 {withdrawValue}");
-          bn2 = withdrawValue / 2;
-          withdrawValue = withdrawValue - (bn2 * 2);
-    
-        };
-    
-        string bankNotes = ($"{bn200} - banknotes of 200 \n {bn100} - banknotes of 100 \n {bn50} - banknotes of 50 \n {bn20} - banknotes of 20 \n {bn10} - banknotes of 10 \n {bn5} - banknotes of 5 \n {bn2} - banknotes of 2 ");
-    
-        Console.WriteLine(bankNotes);
-    
-        return bankNotes; */
-    }
+    /* int bn200 = 0, bn100 = 0, bn50 = 0, bn20 = 0, bn10 = 0, bn5 = 0, bn2 = 0;
+
+
+    if (withdrawValue >= 200) {
+      //Console.WriteLine($"test 200 {withdrawValue}");
+      bn200 = withdrawValue / 200;
+      withdrawValue = withdrawValue - (bn200 * 200);
+    };
+    if (withdrawValue >= 100) {
+      //Console.WriteLine($"test 100 {withdrawValue}");
+      bn100 = (withdrawValue / 2) / 100;
+      withdrawValue = withdrawValue - (bn100 * 100);
+    };
+    if (withdrawValue >= 50) {
+      //Console.WriteLine($"test 50 {withdrawValue}");
+      bn50 = (withdrawValue / 2) / 50;
+      withdrawValue = withdrawValue - (bn50 * 50);
+    };
+    if (withdrawValue >= 20) {
+      //Console.WriteLine($"test 20 {withdrawValue}");
+      bn20 = (withdrawValue / 2) / 20;
+      withdrawValue = withdrawValue - (bn20 * 20);
+
+    };
+    if (withdrawValue >= 10) {
+      //Console.WriteLine($"test 10 {withdrawValue}");
+      bn10 = (withdrawValue / 2) / 10;
+      withdrawValue = withdrawValue - (bn10 * 10);
+
+    };
+    if (withdrawValue >= 5) {
+      //Console.WriteLine($"test 5 {withdrawValue}");
+      bn5 = (withdrawValue / 2) / 5;
+      withdrawValue = withdrawValue - (bn5 * 5);
+
+    };
+    if (withdrawValue >= 2) {
+      //Console.WriteLine($"test 2 {withdrawValue}");
+      bn2 = withdrawValue / 2;
+      withdrawValue = withdrawValue - (bn2 * 2);
+
+    };
+
+    string bankNotes = ($"{bn200} - banknotes of 200 \n {bn100} - banknotes of 100 \n {bn50} - banknotes of 50 \n {bn20} - banknotes of 20 \n {bn10} - banknotes of 10 \n {bn5} - banknotes of 5 \n {bn2} - banknotes of 2 ");
+
+    Console.WriteLine(bankNotes);
+
+    return bankNotes; */
 }
