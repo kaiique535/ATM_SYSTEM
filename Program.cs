@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace new_atm_system
+namespace NewAtmSystem
+
 {
     class Program
     {
