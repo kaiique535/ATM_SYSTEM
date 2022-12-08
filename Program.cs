@@ -17,11 +17,9 @@ namespace NewAtmSystem
         {
             Withdraw withdraw = new Withdraw();
             System.Console.WriteLine("Enter withdraw value:");
-            withdraw.WithdrawValue = int.Parse(Console.ReadLine());
-            var test = withdraw.BanknotesSelection(withdraw.WithdrawValue);
-            withdraw.PrintResult(test);
-
-
+            withdraw._WithdrawValue = int.Parse(Console.ReadLine());
+            var withdraBanknotesList = withdraw.BanknotesSelection(withdraw._WithdrawValue);
+            withdraw.PrintResult(withdraBanknotesList);
         }
 
     }

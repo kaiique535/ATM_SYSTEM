@@ -21,80 +21,90 @@ namespace NewAtmSystem
     }
     internal class Withdraw
     {
-        public int WithdrawValue { get; set; }
-        BanknoteToBeWithdraw structToBeAddOnWithdrawList = new BanknoteToBeWithdraw();
-        BanknotesDescription DescriptionNote;
+        public int _WithdrawValue { get; set; }
+        int[] _AvailableBankNotes = new int[] { 200, 100, 50, 20, 10, 5, 2 };
+        BanknoteToBeWithdraw _structToBeAddOnWithdrawList = new BanknoteToBeWithdraw();
 
-
-        public struct BanknoteToBeWithdraw//Will create a struct to be added on list of withdraw
+        //Will create a struct to be added on list of withdraw
+        // -Identify the value type of banknotes
+        // -Identify a quantity of banknotes to be withdrawn
+        public struct BanknoteToBeWithdraw
         {
-            public BanknotesDescription Notes { get; set; }// To identify the value type of banknotes
-            public int Quantity { get; set; }//To identify a quantity of banknotes to be withdrawn
+            public BanknotesDescription Notes { get; set; }
+            public int Quantity { get; set; }
         }
 
+        //List of banknotes to be withdraw
         private List<BanknoteToBeWithdraw> ListBanknoteToBeWithdraw = new List<BanknoteToBeWithdraw>();
 
-        private static bool LogicToValidateIfTheAmountCanBeWithdraw(int WithdrawValue)
+        //Pitvate methods
+        private bool IsValidWithdrawalAmount(int _WithdrawValue)
         {
-            int constantMod = WithdrawValue % 5;
-            if (constantMod == 1 || constantMod == 3) 
-            { 
-                return true; 
+            int constantMod = _WithdrawValue % 5;
+            if (constantMod == 1 || constantMod == 3)
+            {
+                return true;
             }
             return false;
         }
 
-        private static int AddNotesOnList (bool A, int WithdrawValue )
+        private int AddExtraNotesOnList(bool IsValidWithdraw, int _WithdrawValue)
         {
-            if (A == true)
+            if (IsValidWithdraw == true)
             {
-             WithdrawValue -= 4;
+                _WithdrawValue -= 4;
             }
-            return WithdrawValue;
-        }
-        private int QuantityBanknotes(int qtd, int num) 
+            return _WithdrawValue;
+        }            
+
+        private void QuantityAndDescriptionBanknotes(int qtd, int num, int arrPosition)
         {
-            if (structToBeAddOnWithdrawList.Notes == BanknotesDescription.Note2)
+            _structToBeAddOnWithdrawList.Notes = (BanknotesDescription)_AvailableBankNotes[arrPosition];
+            if (_structToBeAddOnWithdrawList.Notes == BanknotesDescription.Note2)
             {
-                structToBeAddOnWithdrawList.Quantity = qtd + num;
+                _structToBeAddOnWithdrawList.Quantity = qtd + num;
             }
             else
             {
-                structToBeAddOnWithdrawList.Quantity = qtd;
-            }            
-            return structToBeAddOnWithdrawList.Quantity;
+                _structToBeAddOnWithdrawList.Quantity = qtd;
+            }
+        }
+
+        private void AddNotesAndQuantityOnList(int quantity, int _WithdrawValue)
+        {
+            if (quantity != 0)
+            {
+                ListBanknoteToBeWithdraw.Add(_structToBeAddOnWithdrawList);
+            }
         }
 
         //Method to create list of results by withdraw
-        public List<BanknoteToBeWithdraw> BanknotesSelection(int WithdrawValue)
+        public List<BanknoteToBeWithdraw> BanknotesSelection(int _WithdrawValue)
         {
-            //Array of available bank notes.
-            int[] AvailableBankNotes = new int[] { 200, 100, 50, 20, 10, 5, 2 };
             int NumberOfNotes2ToBeAddOnlist = 0;
-            for (int i = 0; i < AvailableBankNotes.Length; i++)
+
+            //loop through array of notes valu
+            for (int arrPosition = 0; arrPosition < _AvailableBankNotes.Length; arrPosition++)
             {
-                if (WithdrawValue >= AvailableBankNotes[i])
+                if (_WithdrawValue >= _AvailableBankNotes[arrPosition])
                 {
-                    bool isValidValue = LogicToValidateIfTheAmountCanBeWithdraw(WithdrawValue);
-                    WithdrawValue = AddNotesOnList(isValidValue, WithdrawValue);                 
+                    bool isValidValue = IsValidWithdrawalAmount(_WithdrawValue);
+                    _WithdrawValue = AddExtraNotesOnList(isValidValue, _WithdrawValue);
+
                     if (isValidValue == true)
                     {
                         NumberOfNotes2ToBeAddOnlist = 2;
                     }
-                    int quantityBankNotes = WithdrawValue / AvailableBankNotes[i];
-                    WithdrawValue -= (quantityBankNotes * AvailableBankNotes[i]);
-                    DescriptionNote = (BanknotesDescription)AvailableBankNotes[i];
-                    structToBeAddOnWithdrawList.Notes = DescriptionNote;
-                    QuantityBanknotes(quantityBankNotes, NumberOfNotes2ToBeAddOnlist);
-                    if (structToBeAddOnWithdrawList.Quantity != 0)
-                    {
-                        ListBanknoteToBeWithdraw.Add(structToBeAddOnWithdrawList);
-                    }
-                    //check if withdrawal amount is greater than zero to break the loop
-                    if (WithdrawValue == 0)
-                    {
-                        break;
-                    }
+
+                    int quantity = _WithdrawValue / _AvailableBankNotes[arrPosition];
+                    _WithdrawValue -= (quantity * _AvailableBankNotes[arrPosition]);
+
+                    QuantityAndDescriptionBanknotes(quantity, NumberOfNotes2ToBeAddOnlist, arrPosition);
+                    AddNotesAndQuantityOnList(quantity, _WithdrawValue);
+                }
+                else if (_WithdrawValue == 0)
+                {
+                    break;
                 }
             }
             return ListBanknoteToBeWithdraw;
